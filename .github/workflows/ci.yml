@@ -16,4 +16,5 @@ jobs:
             java-version: '17'
             distribution: 'zulu'
       -   name: Run Unit Tests
+          working-directory: posttest
           run: ./gradlew test
