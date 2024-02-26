@@ -10,21 +10,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("/admin/lotteries")
 public class AdminController {
 
-    private final LotteryService lotteryService;
+	private final LotteryService lotteryService;
 
-    @Autowired
-    public AdminController(LotteryService lotteryService) {
-        this.lotteryService = lotteryService;
-    }
+	@Autowired
+	public AdminController(LotteryService lotteryService) {
+		this.lotteryService = lotteryService;
+	}
 
-    @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
-    public LotteryResponse addLottery(@Validated @RequestBody LotteryRequest request) throws Exception {
-        return lotteryService.addLottery(request);
-    }
+	@PostMapping
+	@PreAuthorize("hasRole('ADMIN')")
+	public LotteryResponse addLottery(@Validated @RequestBody LotteryRequest request) throws Exception {
+		return lotteryService.addLottery(request);
+	}
 }

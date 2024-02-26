@@ -14,31 +14,31 @@ import lombok.Setter;
 @Data
 public class Lottery {
 
-    @Id
-    @JsonProperty("ticket")
-    private Long lottery_id;
-    private Integer price;
-    private Integer amount;
+	@Id
+	@JsonProperty("ticket")
+	private Long lottery_id;
+	private Integer price;
+	private Integer amount;
 
-    public Lottery() {
-    }
+	public Lottery() {
+	}
 
-    public Lottery(String ticket, Integer price, Integer amount) {
-        this.lottery_id = Long.valueOf(ticket);
-        this.price = price;
-        this.amount = amount;
-    }
+	public Lottery(String ticket, Integer price, Integer amount) {
+		this.lottery_id = Long.valueOf(ticket);
+		this.price = price;
+		this.amount = amount;
+	}
 
 
-    @JsonProperty("ticket")
-    public String getIdAsString() {
-        return String.valueOf(lottery_id);
-    }
+	@JsonProperty("ticket")
+	public String getIdAsString() {
+		return String.valueOf(lottery_id);
+	}
 
-    // Getter for 'id' without 'idAsString' field
-    @JsonIgnore
-    public Long getId() {
-        return lottery_id;
-    }
+	// Getter for 'id' without 'idAsString' field
+	@JsonIgnore
+	public Long getId() {
+		return lottery_id;
+	}
 
 }

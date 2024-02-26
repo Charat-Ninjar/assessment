@@ -17,21 +17,21 @@ import java.util.concurrent.ThreadLocalRandom;
 @Data
 public class User {
 
-    @NotNull
-    @Id
-    private Long user_id;
+	@NotNull
+	@Id
+	private Long user_id;
 
-    @NotNull
-    @Pattern(regexp = "^[a-zA-Z\\s]*$")
-    @Size(min = 3, max = 20, message = "user name should be between 3 and 20 character")
-    private String name;
+	@NotNull
+	@Pattern(regexp = "^[a-zA-Z\\s]*$")
+	@Size(min = 3, max = 20, message = "user name should be between 3 and 20 character")
+	private String name;
 
-    public  User(){
+	public  User(){
 
-    }
-    public User(String name) {
-        this.user_id = ThreadLocalRandom.current().nextLong(1_000_000_000L, 10_000_000_000L);
-        this.name = name;
-    }
+	}
+	public User(String name) {
+		this.user_id = ThreadLocalRandom.current().nextLong(1_000_000_000L, 10_000_000_000L);
+		this.name = name;
+	}
 
 }

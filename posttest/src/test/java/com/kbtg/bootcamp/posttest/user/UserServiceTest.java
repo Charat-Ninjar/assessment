@@ -1,7 +1,5 @@
 package com.kbtg.bootcamp.posttest.user;
 
-import com.kbtg.bootcamp.posttest.exeption.BadRequestException;
-import com.kbtg.bootcamp.posttest.exeption.NotFoundException;
 import jakarta.validation.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,9 +13,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -26,70 +23,70 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 @ExtendWith(MockitoExtension.class)
 class UserServiceTest {
 
-    MockMvc mockMvc;
+	MockMvc mockMvc;
 
-    @Mock
-    private UserRepository userRepository;
+	@Mock
+	private UserRepository userRepository;
 
-    @InjectMocks
-    private UserService userService;
+	@InjectMocks
+	private UserService userService;
 
-    @BeforeEach
-    void setUp() {
-        UserService userService = new UserService(userRepository);
-        mockMvc = MockMvcBuilders.standaloneSetup(userService)
-                .alwaysDo(print())
-                .build();
-    }
+	@BeforeEach
+	void setUp() {
+		UserService userService = new UserService(userRepository);
+		mockMvc = MockMvcBuilders.standaloneSetup(userService)
+				.alwaysDo(print())
+				.build();
+	}
 
-    @Test
-    @DisplayName("User should be created with valid input")
-    void testCreateUserWithValidInput() {
-        UserRequest request = new UserRequest();
-        request.setName("John Doe");
+	@Test
+	@DisplayName("User should be created with valid input")
+	void testCreateUserWithValidInput() {
+		UserRequest request = new UserRequest();
+		request.setName("John Doe");
 
-        User user = new User("John Doe");
-        when(userRepository.save(any(User.class))).thenReturn(user);
+		User user = new User("John Doe");
+					when(userRepository.save(any(User.class))).thenReturn(user);
 
-        User createdUser = userService.createUser(request);
+					User createdUser = userService.createUser(request);
 
-        assertEquals(user.getName(), createdUser.getName());
-    }
+		assertEquals(user.getName(), createdUser.getName());
+	}
 
-    @Test
-    void testCreateUser() {
-        UserRequest request = new UserRequest();
-        request.setName("John Doe");
+	@Test
+	void testCreateUser() {
+		UserRequest request = new UserRequest();
+		request.setName("John Doe");
 
-        User user = new User("John Doe");
-        when(userRepository.save(any(User.class))).thenReturn(user);
+		User user = new User("John Doe");
+		when(userRepository.save(any(User.class))).thenReturn(user);
 
-        User createdUser = userService.createUser(request);
+		User createdUser = userService.createUser(request);
 
-        assertEquals(user.getName(), createdUser.getName());
-    }
+		assertEquals(user.getName(), createdUser.getName());
+	}
 
-    @Test
-    void testGetUserById() {
-        Long userId = 123L;
-        User user = new User("John Doe");
-        user.setUser_id(userId);
-        when(userRepository.findById(userId)).thenReturn(Optional.of(user));
+	@Test
+	void testGetUserById() {
+		Long userId = 123L;
+		User user = new User("John Doe");
+		user.setUser_id(userId);
+		when(userRepository.findById(userId)).thenReturn(Optional.of(user));
 
-        User retrievedUser = userService.getUserById(userId);
+		User retrievedUser = userService.getUserById(userId);
 
-        assertEquals(userId, retrievedUser.getUser_id());
-    }
+		assertEquals(userId, retrievedUser.getUser_id());
+	}
 
-    @Test
-    void testGetAllUser() {
-        User user1 = new User("John Doe");
-        User user2 = new User("Jane Smith");
-        when(userRepository.findAll()).thenReturn(List.of(user1, user2));
+	@Test
+	void testGetAllUser() {
+		User user1 = new User("John Doe");
+		User user2 = new User("Jane Smith");
+		when(userRepository.findAll()).thenReturn(List.of(user1, user2));
 
-        List<User> users = userService.getAllUser();
+		List<User> users = userService.getAllUser();
 
-        assertEquals(2, users.size());
-    }
+		assertEquals(2, users.size());
+	}
 
 }

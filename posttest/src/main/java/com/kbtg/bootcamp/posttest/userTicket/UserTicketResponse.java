@@ -8,5 +8,5 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class UserTicketResponse {
-    private List<String> ticket;
+	private List<String> ticket;
 }

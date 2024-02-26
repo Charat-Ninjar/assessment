@@ -24,31 +24,32 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 @ExtendWith(MockitoExtension.class)
 class LotteryControllerTest {
 
-    MockMvc mockMvc;
-    private ObjectMapper objectMapper;
-    @Mock
-    private LotteryService lotteryService;
+	MockMvc mockMvc;
+	private ObjectMapper objectMapper;
+	@Mock
+	private LotteryService lotteryService;
 
-    @BeforeEach
-    void setUp() {
-        LotteryController lotteryController = new LotteryController(lotteryService);
-        mockMvc = MockMvcBuilders.standaloneSetup(lotteryController)
-                .alwaysDo(print())
-                .build();
-        objectMapper = new ObjectMapper();
-    }
+	@BeforeEach
+	void setUp() {
+		LotteryController lotteryController = new LotteryController(lotteryService);
+		mockMvc = MockMvcBuilders.standaloneSetup(lotteryController)
+				.alwaysDo(print())
+				.build();
+		objectMapper = new ObjectMapper();
+	}
 
-    @Test
-    @DisplayName("When perform GET: /lotteries should return list of exist lotteries")
-    void getListOfExistLottery() throws Exception {
-        Lottery lottery = new Lottery("123456", 1, 1);
+	@Test
+	@DisplayName("When perform GET: /lotteries should return list of exist lotteries")
+	void getListOfExistLottery() throws Exception {
+		Lottery lottery = new Lottery("123456", 1, 1);
 
-        when(lotteryService.getAllLotteries()).thenReturn(List.of(lottery));
+		when(lotteryService.getAllLotteries()).thenReturn(List.of(lottery));
 
-        List<String> testList = Collections.singletonList("123456");
+		List<String> testList = Collections.singletonList("123456");
 
-        mockMvc.perform(get("/lotteries"))
-                .andExpect(jsonPath("$.ticket", is(testList)));
-    }
+		mockMvc.perform(get("/lotteries"))
+				.andExpect(jsonPath("$.ticket", is(testList)));
+
+	}
 
 }

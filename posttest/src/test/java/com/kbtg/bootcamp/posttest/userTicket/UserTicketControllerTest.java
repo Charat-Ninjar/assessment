@@ -16,22 +16,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 @ExtendWith(MockitoExtension.class)
 class UserTicketControllerTest {
 
-    MockMvc mockMvc;
+	MockMvc mockMvc;
 
-    @Mock
-    private UserTicketService userTicketService;
+	@Mock
+	private UserTicketService userTicketService;
 
-    @BeforeEach
-    void setUp() {
-        UserTicketController userTicketController = new UserTicketController(userTicketService);
-        mockMvc = MockMvcBuilders.standaloneSetup(userTicketController)
-                .alwaysDo(print())
-                .build();
-    }
+	@BeforeEach
+	void setUp() {
+		UserTicketController userTicketController = new UserTicketController(userTicketService);
+		mockMvc = MockMvcBuilders.standaloneSetup(userTicketController)
+				.alwaysDo(print())
+				.build();
+	}
 
-    @Test
-    @DisplayName("When perform GET: /users/{userId}/lotteries should return list of lotteries")
-    void showExistListOfLottery(){
+	@Test
+	@DisplayName("When perform GET: /users/{userId}/lotteries should return list of lotteries")
+	void showExistListOfLottery(){
 
-    }
+	}
 }

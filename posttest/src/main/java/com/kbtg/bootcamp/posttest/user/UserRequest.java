@@ -10,9 +10,9 @@ import lombok.Setter;
 @Setter
 public class UserRequest {
 
-    @NotNull
-    @Pattern(regexp = "^[a-zA-Z\\s]*$")
-    @Size(min = 3, max = 20, message = "user name should be between 3 and 20 character")
-    private String name;
+	@NotNull
+	@Pattern(regexp = "^[a-zA-Z\\s]*$")
+	@Size(min = 3, max = 20, message = "user name should be between 3 and 20 character")
+	private String name;
 
 }

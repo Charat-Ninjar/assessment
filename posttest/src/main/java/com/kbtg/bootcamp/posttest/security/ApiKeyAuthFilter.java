@@ -14,18 +14,18 @@ import java.util.Collections;
 
 public class ApiKeyAuthFilter extends OncePerRequestFilter {
 
-    private String HEADER_NAME = "X-API-KEY";
-    private String API_KEY = "your-api-key";
+	private String HEADER_NAME = "X-API-KEY";
+	private String API_KEY = "your-api-key";
 
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String requestApiKey = request.getHeader(HEADER_NAME);
+	@Override
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+		String requestApiKey = request.getHeader(HEADER_NAME);
 
-        if (StringUtils.hasLength(requestApiKey) && API_KEY.equals(requestApiKey)) {
-            SecurityContextHolder.getContext()
-                    .setAuthentication(new UsernamePasswordAuthenticationToken(requestApiKey, null, Collections.emptyList()));
-        }
+		if (StringUtils.hasLength(requestApiKey) && API_KEY.equals(requestApiKey)) {
+			SecurityContextHolder.getContext()
+					.setAuthentication(new UsernamePasswordAuthenticationToken(requestApiKey, null, Collections.emptyList()));
+		}
 
-        filterChain.doFilter(request,response);
-    }
+		filterChain.doFilter(request,response);
+	}
 }

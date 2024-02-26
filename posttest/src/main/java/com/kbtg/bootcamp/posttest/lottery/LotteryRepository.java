@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 public interface LotteryRepository extends JpaRepository<Lottery, Long>
 {
 
-    Lottery findAllById(Long ticketsID);
+	Lottery findAllById(Long ticketsID);
 }
