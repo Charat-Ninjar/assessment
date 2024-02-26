@@ -1,7 +1,7 @@
 FROM amazoncorretto:17.0.9-alpine3.18 as builder
 
 WORKDIR /app
-ADD . .
+ADD posttest .
 RUN ["./gradlew","bootJar"]
 
 

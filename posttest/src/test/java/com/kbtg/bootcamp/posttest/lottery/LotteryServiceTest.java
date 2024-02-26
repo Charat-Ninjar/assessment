@@ -101,7 +101,7 @@ class LotteryServiceTest {
 
         LotteryResponse response = lotteryService.addLottery(request);
         // Assert
-        assertEquals(1, response.getLotteryIds().size());
-        assertEquals("123456", response.getLotteryIds().get(0));
+        assertEquals(1, response.getTicket().size());
+        assertEquals("123456", response.getTicket().get(0));
     }
 }
