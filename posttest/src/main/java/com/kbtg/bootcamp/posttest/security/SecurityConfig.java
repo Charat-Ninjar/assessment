@@ -29,7 +29,6 @@ public class SecurityConfig {
 						.requestMatchers("/users/**").permitAll()
 						.requestMatchers("/lotteries/**").permitAll()
 						.anyRequest().authenticated())
-				.addFilterBefore(new ApiKeyAuthFilter(), BasicAuthenticationFilter.class)
 				.httpBasic(withDefaults())
 				.build();
 	}
