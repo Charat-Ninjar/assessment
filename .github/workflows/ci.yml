@@ -17,4 +17,4 @@ jobs:
             distribution: 'zulu'
       -   name: Run Unit Tests
           working-directory: assessment
-          run: ./gradlew test
+          run: ./posttest/gradlew test
