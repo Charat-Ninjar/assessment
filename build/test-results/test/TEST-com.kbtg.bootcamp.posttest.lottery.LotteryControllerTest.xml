@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kbtg.bootcamp.posttest.lottery.LotteryControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-02-26T05:23:36" hostname="JarjajarBook.local" time="0.126">
+  <properties/>
+  <testcase name="When perform GET: /lotteries should return list of exist lotteries" classname="com.kbtg.bootcamp.posttest.lottery.LotteryControllerTest" time="0.126"/>
+  <system-out><![CDATA[12:23:36.865 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+12:23:36.865 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+12:23:36.866 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 1 ms
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /lotteries
+       Parameters = {}
+          Headers = []
+             Body = <no character encoding set>
+    Session Attrs = {}
+
+Handler:
+             Type = com.kbtg.bootcamp.posttest.lottery.LotteryController
+           Method = com.kbtg.bootcamp.posttest.lottery.LotteryController#showLotteryList()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"ticket":["123456"],"lotteryIds":["123456"]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
