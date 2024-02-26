@@ -17,7 +17,9 @@ jobs:
             distribution: 'zulu'
       -   name: Run Linter
           working-directory: posttest
-          run: ./gradlew spotlessCheck
+          run: |
+            ./gradlew spotlessCheck
+            ./gradlew spotlessApply
   unit-test:
     name: Run Unit Test
     runs-on: ubuntu-latest
