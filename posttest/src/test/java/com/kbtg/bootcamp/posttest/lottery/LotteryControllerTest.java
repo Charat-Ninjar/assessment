@@ -1,7 +1,5 @@
 package com.kbtg.bootcamp.posttest.lottery;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 class LotteryControllerTest {
 
 	MockMvc mockMvc;
-	private ObjectMapper objectMapper;
+
 	@Mock
 	private LotteryService lotteryService;
 
@@ -35,7 +33,6 @@ class LotteryControllerTest {
 		mockMvc = MockMvcBuilders.standaloneSetup(lotteryController)
 				.alwaysDo(print())
 				.build();
-		objectMapper = new ObjectMapper();
 	}
 
 	@Test
